@@ -1,1 +1,33 @@
-<p>qoute works!</p>
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+  crossorigin="anonymous"
+/>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <h1>Quote</h1>
+  </div>
+</nav>
+<div class="row">
+  <div class="col-md-6 card">
+    <div *ngFor="let quote of sortQuotes; let i = index" class="quote">
+      <mat-card>
+        <p>{{ quote.words }}</p>
+        <app-quote-details
+          *ngIf="quote"
+          bind-newQuote="quote"
+          (isRead)="quoteDelete($event, i)"
+        >
+        </app-quote-details>
+        by
+        <span id="name"
+          ><strong>{{ quote.name }}</strong></span
+        >
+      </mat-card>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <app-quote-form (add)="addedQuote($event)"></app-quote-form>
+  </div>
+</div>
