@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QouteComponent } from './qoute.component';
+import {QouteComponent} from './qoute.component';
 
 describe('QouteComponent', () => {
   let component: QouteComponent;

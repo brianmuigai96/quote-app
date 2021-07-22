@@ -20,13 +20,13 @@ export class QouteComponent implements OnInit {
     });
   }
 
-  addedQuote(quote){
+  addedQuote(quote: Quote){
     let arraysize = this.quotes.length;
     quote.id = arraysize+1;
     quote.datePosted = new Date(quote.datePosted)
     this.quotes.push(quote)
   }
-  quoteDelete(isRead, index){
+  quoteDelete(isRead: any, index: number){
     if (isRead) {
       let toDelete = confirm(`Are you sure you want to delete this Quote?`)
       if(toDelete){
